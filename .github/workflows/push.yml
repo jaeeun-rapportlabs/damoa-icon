@@ -41,11 +41,11 @@ jobs:
 
     - name: GIT commit and push all changed files
       env:
-        CI_COMMIT_MESSAGE: Add New Icons
         CI_COMMIT_USER_NAME: jaeeun-rapportlabs
         CI_COMMIT_USER_EMAIL: jaeeun@rapportlabs.kr
       run: |
         git config --global user.name "${{ env.CI_COMMIT_USER_NAME }}"
         git config --global user.email "${{ env.CI_COMMIT_USER_EMAIL }}"
-        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git add -A
+        git commit -m "Add New Icons"
         git push origin HEAD:master
