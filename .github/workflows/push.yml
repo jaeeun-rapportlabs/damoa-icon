@@ -40,9 +40,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: GIT commit and push all changed files
-      env:
-        CI_COMMIT_MESSAGE: GH Actions Add Artifacts
       run: |
-        git config --global user.email "jaeeun@rapportlabs.kr"
         git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
         git push origin HEAD:master
