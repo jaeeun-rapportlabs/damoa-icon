@@ -40,12 +40,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: GIT commit and push all changed files
-      env:
-        CI_COMMIT_USER_NAME: jaeeun-rapportlabs
-        CI_COMMIT_USER_EMAIL: jaeeun@rapportlabs.kr
-      run: |
-        git config --global user.name "${{ env.CI_COMMIT_USER_NAME }}"
-        git config --global user.email "${{ env.CI_COMMIT_USER_EMAIL }}"
-        git add -A
-        git commit -m "Add New Icons"
-        git push origin HEAD:master
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
