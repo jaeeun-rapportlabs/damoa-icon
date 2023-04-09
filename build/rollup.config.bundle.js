@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
 import pkg from '../package.json';
+const svg = require('rollup-plugin-svg');
 
 const resolveFile = function(filePath) {
   return path.join(__dirname, '..', filePath)
@@ -23,5 +24,6 @@ export default {
     babel({
       exclude: 'node_modules/**',
     }),
+    svg(),
   ],
 };
