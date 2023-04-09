@@ -6,7 +6,7 @@
   "module": "dist/juuust-react-icon.esm.js",
   "typings": "dist/icons.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "repository": "https://github.com/leadream/juuust-react-icon.git",
   "author": "leadream",
