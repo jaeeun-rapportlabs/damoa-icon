@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const IconWrapper = styled.a`
+const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  svg{
+  svg {
     margin: 36px 0;
   }
 `

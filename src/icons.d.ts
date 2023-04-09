@@ -1,21 +1,13 @@
 /// <reference types="react" />
-  import { ComponentType, SVGAttributes } from 'react';
-
-  interface Props extends SVGAttributes<SVGElement> {
-    color?: string;
-    size?: string | number;
-  }
-
-  type Icon = ComponentType<Props>;
-  export const IcTabHomeOff24: Icon;
-export const IcTabMarchhomeOff24: Icon;
-export const IcTabCategoryOff24: Icon;
-export const IcTabProfileOff24: Icon;
-export const IcTabCartOff24: Icon;
-export const IcTabLikeOff24: Icon;
-export const IcTabMarchhomeOn24: Icon;
-export const IcTabCategoryOn24: Icon;
-export const IcTabProfileOn24: Icon;
-export const IcTabCartOn24: Icon;
-export const IcTabLikeOn24: Icon;
-export const IcTabHomeOn24: Icon;
+  export const ic_tab_home_off_24: string;
+export const ic_tab_marchhome_off_24: string;
+export const ic_tab_category_off_24: string;
+export const ic_tab_profile_off_24: string;
+export const ic_tab_cart_off_24: string;
+export const ic_tab_like_off_24: string;
+export const ic_tab_marchhome_on_24: string;
+export const ic_tab_category_on_24: string;
+export const ic_tab_profile_on_24: string;
+export const ic_tab_cart_on_24: string;
+export const ic_tab_like_on_24: string;
+export const ic_tab_home_on_24: string;

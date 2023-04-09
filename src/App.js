@@ -27,7 +27,6 @@ class List extends React.Component {
                 return <li key={index}>
                   <IconWrapper>
                     <Icon/>
-                    <span onDoubleClick={() => handleCopyIcon(key)}>{key}</span>
                   </IconWrapper>
                 </li>
               })
@@ -36,19 +35,6 @@ class List extends React.Component {
       </div>
     )
   }
-}
-
-// copy icon
-function handleCopyIcon(str) {
-  const el = document.createElement('textarea');
-  el.value = str;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
 }
 
 export default List;
