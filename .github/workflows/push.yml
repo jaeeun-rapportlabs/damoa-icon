@@ -19,6 +19,9 @@ jobs:
         node-version: '10.x'
     - run: yarn install
     - run: yarn fetch
+      env:
+        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+        FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
     - run: yarn generate
     - run: yarn build:bundle
     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
