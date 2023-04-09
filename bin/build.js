@@ -33,7 +33,8 @@ const generateIconsIndex = () => {
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
   const exportString = `import ${name}_svg from './svg/${name}.svg';
-export const ${name} = URL.createObjectURL(${name}_svg);\r\n
+  const blob_${name} = new Blob([${name}_svg], {type: 'image/svg+xml'});
+  export const ${name} = URL.createObjectURL(blob_${name});\r\n
   `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
