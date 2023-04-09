@@ -39,11 +39,7 @@ module.exports = [
       replace({
         'process.env.NODE_ENV': JSON.stringify( 'production' )
       }),
-      url({
-        limit: 0, // Always emit a separate file
-        include: ['**/*.svg'], // Specify the file types to include
-        fileName: '[name][extname]', // Customize the output file name
-      }),
+      svg()
     ],
   },
 ]
