@@ -18,7 +18,8 @@ export default {
   plugins: [
     copy({
       targets: [
-        { src: resolveFile('src/icons.d.ts'), dest: resolveFile('dist/') }
+        { src: resolveFile('src/icons.d.ts'), dest: resolveFile('dist/') },
+        { src: resolve('src/svg/*'), dest: resolve('dist/svg/') } // copy SVG files
       ]
     }),
     babel({
