@@ -19,8 +19,7 @@ const generateIconsIndex = () => {
     fs.mkdirSync(iconsDir)
   }
 
-  const initialTypeDefinitions = `/// <reference types="react" />
-  `;
+  const initialTypeDefinitions = `/// <reference types="react" />`;
 
   fs.writeFileSync(path.join(rootDir, 'src', 'icons.js'), '', 'utf-8');
   fs.writeFileSync(
@@ -32,9 +31,12 @@ const generateIconsIndex = () => {
 
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
-  const exportString = `import ${name}_svg from './svg/${name}.svg';
-  const blob_${name} = new Blob([${name}_svg], {type: 'image/svg+xml'});
-  export const ${name} = URL.createObjectURL(blob_${name});\r\n
+  // const exportString = `import ${name}_svg from './svg/${name}.svg';
+  // const blob_${name} = new Blob([${name}_svg], {type: 'image/svg+xml'});
+  // export const ${name} = URL.createObjectURL(blob_${name});\r\n
+  // `;
+  const exportString = `import ${name}_png from './png/${name}.png';
+  export const ${name} = URL.createObjectURL(${name}_png);\r\n
   `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),

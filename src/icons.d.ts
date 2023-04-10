@@ -1,5 +1,4 @@
-/// <reference types="react" />
-  export const ic_tab_home_off_24: string;
+/// <reference types="react" />export const ic_tab_home_off_24: string;
 export const ic_tab_marchhome_off_24: string;
 export const ic_tab_category_off_24: string;
 export const ic_tab_profile_off_24: string;
