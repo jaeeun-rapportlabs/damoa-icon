@@ -1,6 +1,6 @@
 const path = require('path');
 const { babel } = require('@rollup/plugin-babel');
-const svg = require('rollup-plugin-svg');
+const url = require('@rollup/plugin-url');
 const postcss = require('rollup-plugin-postcss')
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -26,6 +26,7 @@ module.exports = [
       format: 'umd',
     },
     plugins: [
+      url(),
       copy({
         targets: [
           { src: resolveFile('public/**/*'), dest: resolveFile('docs') }
@@ -40,7 +41,6 @@ module.exports = [
       replace({
         'process.env.NODE_ENV': JSON.stringify( 'production' )
       }),
-      svg()
     ],
   },
 ]
