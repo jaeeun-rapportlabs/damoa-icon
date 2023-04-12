@@ -82,3 +82,4 @@ import ic_tab_home_off_24_png from './png/ic_tab_home_off_24/ic_tab_home_off_24.
   export const ic_tab_home_on_24_2x = ic_tab_home_on_24_2x_png;
   export const ic_tab_home_on_24_3x = ic_tab_home_on_24_3x_png;
 
+  
