@@ -19,14 +19,7 @@ const generateIconsIndex = () => {
     fs.mkdirSync(iconsDir)
   }
 
-  const initialTypeDefinitions = `
-  export interface PngImage {
-    uri: string;
-    '1x': string;
-    '2x': string;
-    '3x': string;
-  }
-  `;
+  const initialTypeDefinitions = ``;
 
   fs.writeFileSync(path.join(rootDir, 'src', 'icons.js'), '', 'utf-8');
   fs.writeFileSync(
@@ -38,15 +31,7 @@ const generateIconsIndex = () => {
 
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
-  const exportString = `import ${name}1x from './png/${name}/${name}.png';
-  import ${name}2x from './png/${name}/${name}@2x.png';
-  import ${name}3x from './png/${name}/${name}@3x.png';
-  export const ${name} = {
-    uri: ${name}1x,
-    '1x': ${name}1x,
-    '2x': ${name}2x,
-    '3x': ${name}3x,
-  };\r\n
+  const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n
   `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
@@ -54,7 +39,8 @@ const appendToIconsIndex = ({ name }) => {
     'utf-8',
   );
 
-  const exportTypeString = `export const ${name}: PngImage;\n
+  const exportTypeString = `const ${name}: number;
+  export { ${name} };\n
   `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.d.ts'),

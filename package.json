@@ -1,6 +1,6 @@
 {
   "name": "damoa-icon-test",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "Icon automation workflow with Figma",
   "main": "dist/juuust-react-icon.cjs.js",
   "module": "dist/juuust-react-icon.esm.js",
