@@ -20,7 +20,7 @@ export default {
     copy({
       targets: [
         { src: resolveFile('src/icons.d.ts'), dest: resolveFile('dist/') },
-        { src: resolve('src/svg/*'), dest: resolve('dist/svg/') } // copy SVG files
+        { src: resolve('src/png/**'), dest: resolve('dist/png/') } // copy SVG files
       ]
     }),
     babel({
