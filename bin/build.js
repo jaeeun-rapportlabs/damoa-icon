@@ -33,7 +33,11 @@ const generateIconsIndex = () => {
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
   const exportString = `import ${name}_png from './png/${name}/${name}.png';
-  export const ${name} = ${name}_png;\r\n
+  import ${name}_2x_png from './png/${name}/${name}@2x.png';
+  import ${name}_3x_png from './png/${name}/${name}@3x.png';
+  export const ${name} = ${name}_png;
+  export const ${name}_2x = ${name}_2x_png;
+  export const ${name}_3x = ${name}_3x_png;\r\n
   `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
@@ -41,7 +45,10 @@ const appendToIconsIndex = ({ name }) => {
     'utf-8',
   );
 
-  const exportTypeString = `export const ${name}: string;\n`;
+  const exportTypeString = `export const ${name}: string;\n
+  export const ${name}_2x: string;
+  export const ${name}_3x: string;
+  `;
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.d.ts'),
     exportTypeString,
