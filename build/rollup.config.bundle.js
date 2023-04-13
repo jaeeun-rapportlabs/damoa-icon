@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel';
 import { join, resolve } from 'path';
 import copy from 'rollup-plugin-copy';
 import pkg from '../package.json';
+import url from '@rollup/plugin-url'
 
 const resolveFile = function(filePath) {
   return join(__dirname, '..', filePath)
@@ -15,6 +16,7 @@ export default {
   ],
   external: ['react', 'prop-types'],
   plugins: [
+    url(),
     copy({
       targets: [
         { src: resolveFile('src/icons.d.ts'), dest: resolveFile('dist/') },

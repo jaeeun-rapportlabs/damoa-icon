@@ -26,6 +26,7 @@ module.exports = [
       format: 'umd',
     },
     plugins: [
+      url(),
       copy({
         targets: [
           { src: resolveFile('public/**/*'), dest: resolveFile('docs') }

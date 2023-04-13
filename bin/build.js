@@ -8,15 +8,11 @@ const rootDir = path.join(__dirname, '..')
 
 // where icons code in
 const srcDir = path.join(rootDir, 'src')
-const iconsDir = path.join(rootDir, 'src/icons')
 
 // generate icons.js and icons.d.ts file
 const generateIconsIndex = () => {
   if (!fs.existsSync(srcDir)) {
     fs.mkdirSync(srcDir)
-    fs.mkdirSync(iconsDir)
-  } else if (!fs.existsSync(iconsDir)) {
-    fs.mkdirSync(iconsDir)
   }
 
   const initialTypeDefinitions = ``;
@@ -31,8 +27,9 @@ const generateIconsIndex = () => {
 
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
-  const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n
-  `;
+  const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n`;
+  // const exportString = `export const ${name} = require('./svg/${name}.svg');\r\n`;
+
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
     exportString,
@@ -42,6 +39,8 @@ const appendToIconsIndex = ({ name }) => {
   const exportTypeString = `const ${name}: number;
   export { ${name} };\n
   `;
+  // const exportTypeString = `export const ${name}: string;\n`;
+
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.d.ts'),
     exportTypeString,
