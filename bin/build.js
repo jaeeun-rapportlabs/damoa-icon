@@ -27,8 +27,11 @@ const generateIconsIndex = () => {
 
 // append export code to icons.js
 const appendToIconsIndex = ({ name }) => {
-  const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n`;
-  // const exportString = `export const ${name} = require('./svg/${name}.svg');\r\n`;
+  // const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n`;
+  const exportString = `
+  import ${name}_svg from './svg/${name}.svg'
+  export const ${name} = ${name}_svg;\r\n
+  `;
 
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
@@ -36,10 +39,10 @@ const appendToIconsIndex = ({ name }) => {
     'utf-8',
   );
 
-  const exportTypeString = `const ${name}: number;
-  export { ${name} };\n
-  `;
-  // const exportTypeString = `export const ${name}: string;\n`;
+  // const exportTypeString = `const ${name}: number;
+  // export { ${name} };\n
+  // `;
+  const exportTypeString = `export const ${name}: string;\n`;
 
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.d.ts'),
