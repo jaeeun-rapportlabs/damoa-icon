@@ -32,12 +32,11 @@ const appendToIconsIndex = ({ name }) => {
     const exportTypeString = `const ${name}: number;\nexport { ${name} };\r\n`;
   */
 
-  /* 2. svg export 방식
-    const exportString = `import ${name}_svg from './svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
-    const exportTypeString = `export const ${name}: string;\n`;
-  */
+  /* 2. svg export 방식 */
+  const exportString = `import ${name}_svg from './svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
+  const exportTypeString = `export const ${name}: string;\n`;
 
-  /* 3. png (+ @2x, @3x) export 방식 */
+  /* 3. png (+ @2x, @3x) export 방식
   const exportString = `
     import ${name}_png from './png/${name}/${name}.png'
     import ${name}_2x_png from './png/${name}/${name}@2x.png'
@@ -53,6 +52,7 @@ const appendToIconsIndex = ({ name }) => {
     export const ${name}_2x: string;
     export const ${name}_3x: string;\n
   `;
+  */
 
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
