@@ -33,25 +33,25 @@ const appendToIconsIndex = ({ name }) => {
   */
 
   /* 2. svg export 방식 */
-  // const exportString = `import ${name}_svg from './svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
-  // const exportTypeString = `export const ${name}: string;\n`;
+  const exportString = `import ${name}_svg from './svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
+  const exportTypeString = `export const ${name}: string;\n`;
 
   /* 3. png (+ @2x, @3x) export 방식 */
-  const exportString = `
-    import ${name}_png from './png/${name}/${name}.png'
-    import ${name}_2x_png from './png/${name}/${name}@2x.png'
-    import ${name}_3x_png from './png/${name}/${name}@3x.png'
+  // const exportString = `
+  //   import ${name}_png from './png/${name}/${name}.png'
+  //   import ${name}_2x_png from './png/${name}/${name}@2x.png'
+  //   import ${name}_3x_png from './png/${name}/${name}@3x.png'
 
-    export const ${name} = ${name}_png
-    export const ${name}_2x = ${name}_2x_png
-    export const ${name}_3x = ${name}_3x_png\n
-  `;
+  //   export const ${name} = ${name}_png
+  //   export const ${name}_2x = ${name}_2x_png
+  //   export const ${name}_3x = ${name}_3x_png\n
+  // `;
 
-  const exportTypeString = `
-    export const ${name}: string;
-    export const ${name}_2x: string;
-    export const ${name}_3x: string;\n
-  `;
+  // const exportTypeString = `
+  //   export const ${name}: string;
+  //   export const ${name}_2x: string;
+  //   export const ${name}_3x: string;\n
+  // `;
 
   fs.appendFileSync(
     path.join(rootDir, 'src', 'icons.js'),
