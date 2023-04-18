@@ -9,10 +9,10 @@ const {FIGMA_TOKEN, FIGMA_FILE_URL} = process.env
 const outputDir = './src/'
 
 const options = [
-    { format: 'svg', scale: '1' },
-    { format: 'png', scale: '1' },
-    { format: 'png', scale: '2' },
-    { format: 'png', scale: '3' }
+    { format: 'svg', scale: 1 },
+    { format: 'png', scale: 1 },
+    { format: 'png', scale: 2 },
+    { format: 'png', scale: 3 }
 ]
 
 const contentTypes = {
@@ -46,17 +46,14 @@ async function main() {
     const components = {}
 
     function check(c) {
-      if (c.type === 'COMPONENT') {
+      if (c.type === 'INSTANCE') {
         const {name, id} = c
-        const {description = '', key} = data.components[c.id]
         const {width, height} = c.absoluteBoundingBox
 
         components[id] = {
           name,
           id,
-          key,
           file: fileId,
-          description,
           width,
           height
         }
